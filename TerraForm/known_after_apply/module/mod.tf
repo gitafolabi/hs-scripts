@@ -3,6 +3,7 @@ variable "input_run" {
 }
 
 resource "random_string" "key" {
+  count   = var.input_run ? 1 : 0
   length  = 32
   special = false
 }
@@ -10,8 +11,8 @@ resource "random_string" "key" {
 locals {
   platform = {
     x = {
-      abc = var.input_run ? base64encode(random_string.key.result) : "",
-      def = random_string.key.result
+      abc = var.input_run ? base64encode(random_string.key[0].result) : "",
+      def = try(random_string.key[0].result, "def")
     }
   }
 }
