@@ -1,5 +1,6 @@
 variable "data" {
   sensitive = true
+  ephemeral = true
 }
 
 locals {
@@ -10,7 +11,7 @@ locals {
 }
 
 resource "terraform_data" "test" {
-  triggers_replace = var.data
+  triggers_replace = timestamp()
   provisioner "local-exec" {
     when = create
     command = "echo ${var.data}"
