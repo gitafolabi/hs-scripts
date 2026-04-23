@@ -6,12 +6,15 @@ variable "data" {
 
 module "test" {
   source = "./modul"
-  data   = var.data
+  data   = {
+    abc = var.data
+    def = 123
+  }
 }
 
 locals {
   test = {
-    foo = "bar"
+    foo    = "bar"
     script = module.test.script
   }
 }

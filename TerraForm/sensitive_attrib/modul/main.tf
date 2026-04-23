@@ -1,4 +1,9 @@
 variable "data" {
+  type = object({
+    abc = string
+    def = number
+    xyx = optional(bool, false)
+  })
   sensitive = true
   ephemeral = true
 }
@@ -14,7 +19,7 @@ resource "terraform_data" "test" {
   triggers_replace = timestamp()
   provisioner "local-exec" {
     when    = create
-    command = "echo ${var.data}"
+    command = "echo ${var.data.abc}"
   }
 }
 
