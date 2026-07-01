@@ -10,9 +10,9 @@ variable "hcloud_server" {
   })
   default = {
     this : [
-      { name : "a", ipv4 : "10.0.0.1", network: [{ip : "10.0.1.11"}] },
-      { name : "b", ipv4 : "10.0.0.2", network: [{ip : "10.0.2.22"}] },
-      { name : "c", ipv4 : "10.0.0.3", network: [{ip : "10.0.3.33"}] },
+      { name : "a", ipv4 : "10.0.0.1", network : [{ ip : "10.0.1.11" }] },
+      { name : "b", ipv4 : "10.0.0.2", network : [{ ip : "10.0.2.22" }] },
+      { name : "c", ipv4 : "10.0.0.3", network : [{ ip : "10.0.3.33" }] },
     ]
   }
 }
